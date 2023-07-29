@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import Navbar from "./navbar"; // Assuming the original Navbar component is in "navbar.tsx"
+import NoResults from "./ui/no-results";
 
 export default function NavbarClient() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -12,13 +13,17 @@ export default function NavbarClient() {
   const handleSearchFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Implement search functionality here (e.g., redirect to search results page)
+
   };
 
   return (
+    <>
     <Navbar
       searchQuery={searchQuery}
       handleSearchInputChange={handleSearchInputChange}
       handleSearchFormSubmit={handleSearchFormSubmit}
     />
+    <NoResults/>
+    </>
   );
 }
